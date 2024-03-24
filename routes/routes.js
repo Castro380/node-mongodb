@@ -1,29 +1,10 @@
 const express = require("express");
-const Produto = require("../models/produto");
 const router = express.Router();
 
-router.get('/', function(req, res){
-    res.json({})
-})
+const introducao = require('./introducao')
+const lista4 = require('./Lista4')
 
-router.get('/produtos', async function(req, res){
-    res.json( await Produto.find())
-})
-
-router.post('/produtos', async function(req, res){
-    res.json( await Produto.create(req.body))
-})
-
-router.get('/produtos/:id', async function(req, res){
-    res.json( await Produto.findById(req.params.id) )
-})
-
-router.delete('/produtos/:id', async function(req, res){
-    res.json( await Produto.findByIdAndDelete(req.params.id) )
-})
-
-router.put('/produtos/:id', async function(req, res){
-    res.json( await Produto.findByIdAndUpdate(req.params.id, req.body) )
-})
+router.use('/', introducao)
+router.use('/lista4', lista4)
 
 module.exports = router
