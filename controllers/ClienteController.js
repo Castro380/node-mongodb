@@ -40,4 +40,4 @@ const ClienteController = {
         }
     },
 }
-module.exports = ClienteController
+module.exports = ClienteControllers
