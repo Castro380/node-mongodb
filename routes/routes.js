@@ -1,12 +1,15 @@
 const express = require("express");
+<<<<<<< HEAD
 const ProdutoController = require("../controllers/ProdutoController");
 const Produto = require("../models/produto");
+=======
+>>>>>>> a6e6e93a0469acc2d3b17aee9339608ec1c2faa5
 const router = express.Router();
 
-router.get('/', function(req, res){
-    res.json({})
-})
+const introducao = require('./introducao')
+const lista4 = require('./Lista4')
 
+<<<<<<< HEAD
 //Produtos
 router.get('/produtos', (req, res) => ProdutoController.getAll(req, res))
 router.post('/produtos',(req, res) => ProdutoController.create(req, res))
@@ -36,3 +39,9 @@ router.put('/Cliente/:id',(req, res) => ClienteController.update(req, res))
 router.delete('/Cliente/:id',(req, res) => ClienteController.delete(req, res))
 
 module.exports = router
+=======
+router.use('/', introducao)
+router.use('/lista4', lista4)
+
+module.exports = router
+>>>>>>> a6e6e93a0469acc2d3b17aee9339608ec1c2faa5
