@@ -40,5 +40,4 @@ const ClienteController = {
         }
     },
 }
-
 module.exports = ClienteController
