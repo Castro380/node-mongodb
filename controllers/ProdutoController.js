@@ -1,43 +1,52 @@
-const { json } = require("express")
-const Produto = require("../models/produto")
+const {json} = require("express");
+const Produto = require("../models/Produto")
 
 const ProdutoController = {
+  getALL: async (req, res ) => {
+    res.json( await Produto.find())
+  },
 
-    getAll: async (req, res) => {
-        res.json( await Produto.find())
-    },
+  get: async (req, res ) => {
 
-    get: async (req, res) => {
-        try {
-            res.json( await Produto.findById(req.params.id) )            
-        } catch (error) {
-            res.status(404).json({error: 'Registro não encontrado'})
-        }
-    },
 
-    create: async (req, res) => {
-        try {
-            res.json( await Produto.create(req.body))
-        } catch (error) {
-            res.status(400).json(error)
-        }
-    },
+    try {
+        res.json( await Produto.findById(req.params.id))
+        
+    } catch (error) {
+        res.status(404).json({error: 'error'})
+    }
+  },
 
-    update: async (req, res) => {
-        try {
-            res.json( await Produto.findByIdAndUpdate(req.params.id, req.body) )
-        } catch (error) {
-            res.status(404).json({error: 'Registro não encontrado'})
-        }
-    },
+  create: async (req, res ) => {
+      try {
+          
+          res.json( await Produto.create( req.body))
+        
+    } catch (error) {
+        res.status(404).json({error})
+    }
+  },
 
-    delete: async (req, res) => {
-        try {
-            res.json( await Produto.findByIdAndDelete(req.params.id) )
-        } catch (error) {
-            res.status(404).json({error: 'Registro não encontrado'})
-        }
-    },
+  update: async (req, res ) => {
+      try {
+          
+          res.json( await Produto.findByIdAndUpdate(req.params.id, req.body))
+        
+    } catch (error) {
+        res.status(404).json({error: 'error'})
+    }
+  },
+
+  delete: async (req, res ) => {
+      try {
+          res.json( await Produto.findByIdAndDelete(req.params.id))
+          
+    } catch (error) {
+        res.status(404).json({error: 'error'})
+    }
+  },
+
+
 }
 
-module.exports = ProdutoController
+module.exports = ProdutoController;

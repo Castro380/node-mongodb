@@ -1,11 +1,35 @@
 const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
-    nome: String,
-    preco: Number,
+    nome: {
+        type: String,
+        required: true,
+        minLength: 2,
+        maxLength: 100,
+        uppercase: true,
+        trim: true
+
+    },
+    preco: {
+        type: String,
+        default: 0,
+        min: [0, 'Mais fácil'],
+        match: /^\d+(\.\d{1,2})?$/,
+        // set: (value) => {
+        //     const pedaco1 = "007"
+        //     const pedaco2 = "456"
+        //     const pedaco3 = "879"
+        //     const digito = "87"
+
+        //     return `${pedaco1}.${pedaco2}.${pedaco3}.${digito}`
+        // }
+    },
     tamanho: String,
-    tipo: String,
-    ingredientes: []
+    tipo: {
+    type: String,
+    enum: ["Bebidas", "Pizzas", "Massas", "Sobremesas"]
+    },
+    ingredientes: [String]
 
 }, {timestamps: true})
 

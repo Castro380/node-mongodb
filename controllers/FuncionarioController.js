@@ -1,16 +1,16 @@
 const {json} = require("express");
-const Cliente = require("../models/Cliente")
+const Funcionario = require("../models/Funcionario")
 
-const ClienteController = {
+const FuncionarioController = {
   getALL: async (req, res ) => {
-    res.json( await Cliente.find())
+    res.json( await Funcionario.find())
   },
 
   get: async (req, res ) => {
 
 
     try {
-        res.json( await Cliente.findById(req.params.id))
+        res.json( await Funcionario.findById(req.params.id))
         
     } catch (error) {
         res.status(404).json({error: 'error'})
@@ -20,7 +20,7 @@ const ClienteController = {
   create: async (req, res ) => {
       try {
           
-          res.json( await Cliente.create( req.body))
+          res.json( await Funcionario.create( req.body))
         
     } catch (error) {
         res.status(404).json({error})
@@ -30,7 +30,7 @@ const ClienteController = {
   update: async (req, res ) => {
       try {
           
-          res.json( await Cliente.findByIdAndUpdate(req.params.id, req.body))
+          res.json( await Funcionario.findByIdAndUpdate(req.params.id, req.body))
         
     } catch (error) {
         res.status(404).json({error: 'error'})
@@ -39,7 +39,7 @@ const ClienteController = {
 
   delete: async (req, res ) => {
       try {
-          res.json( await Cliente.findByIdAndDelete(req.params.id))
+          res.json( await Funcionario.findByIdAndDelete(req.params.id))
           
     } catch (error) {
         res.status(404).json({error: 'error'})
@@ -49,4 +49,4 @@ const ClienteController = {
 
 }
 
-module.exports = ClienteController;
+module.exports = FuncionarioController;
