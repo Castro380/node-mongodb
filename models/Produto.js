@@ -16,7 +16,7 @@ const schema = mongoose.Schema({
         min: [0, 'Mais fácil'],
         match: /^\d+(\.\d{1,2})?$/,
         // set: (value) => {
-        //     const pedaco1 = "007"
+        //     const pedaco1 = "123"
         //     const pedaco2 = "456"
         //     const pedaco3 = "879"
         //     const digito = "87"
@@ -27,7 +27,7 @@ const schema = mongoose.Schema({
     tamanho: String,
     tipo: {
     type: String,
-    enum: ["Bebidas", "Pizzas", "Massas", "Sobremesas"]
+    enum: ["Bebidas", "Pizza", "Massas", "Sobremesas",]
     },
     ingredientes: [String]
 
