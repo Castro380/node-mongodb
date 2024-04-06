@@ -2,7 +2,7 @@ const {json} = require("express");
 const Comanda = require("../models/Comanda")
 
 const ComandaController = {
-  getALL: async (req, res ) => {
+  getAll: async (req, res ) => {
     res.json( await Comanda.find())
   },
 

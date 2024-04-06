@@ -2,7 +2,7 @@ const {json} = require("express");
 const Funcionario = require("../models/Funcionario")
 
 const FuncionarioController = {
-  getALL: async (req, res ) => {
+  getAll: async (req, res ) => {
     res.json( await Funcionario.find())
   },
 

@@ -2,7 +2,7 @@ const {json} = require("express");
 const Cliente = require("../models/Cliente")
 
 const ClienteController = {
-  getALL: async (req, res ) => {
+  getAll: async (req, res ) => {
     res.json( await Cliente.find())
   },
 
